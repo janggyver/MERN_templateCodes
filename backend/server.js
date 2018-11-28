@@ -11,6 +11,8 @@ const router = express.Router();
 //this is our MongoDB database
 const dbRoute = process.env.MONGO_DB;
 
+const path = require("path");
+app.use(express.static(path.join(__dirname, "client/build")));
 //connects our back end code with the database
 mongoose.connect(
     dbRoute,
@@ -73,6 +75,7 @@ router.post("/putData", (req, res) => {
     }
     data.message = message;
     data.id = id;
+
     data.save(err => {
         if(err) return res.json({success: false, error: err});
         return res.json({success: true});

@@ -66,7 +66,7 @@ class App extends Component {
   // to remove exisiting database information
   deleteFromDB = idToDelete => {
     let objIdToDelete = null;
-    this.setState.data.forEach(dat => {
+    this.state.data.forEach(dat => {
       if(dat.id === idToDelete){
         objIdToDelete = dat._id;
       }
